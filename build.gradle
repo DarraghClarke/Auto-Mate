@@ -1,0 +1,57 @@
+plugins {
+    id 'application'
+    id "com.diffplug.spotless" version "6.2.0"
+}
+
+apply plugin: 'application'
+mainClassName = 'com.tinyTines.TinyTinesApp'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:4.3.1'
+}
+
+spotless {
+    java {
+        target project.fileTree(dir: 'src', include: '**/*.java')
+
+                indentWithSpaces()
+                trimTrailingWhitespace()
+
+                replaceRegex 'Remove empty lines before end of block', '\\n[\\n]+(\\s*})(?=\\n)', '\n$1'
+                replaceRegex 'Remove trailing empty comment lines.', '\n\\s*\\*(\n\\s*\\*/\n)', '$1'
+    }
+}
+
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes(
+                'Main-Class': mainClassName
+        )
+    }
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+tasks.withType(Test) {
+    useJUnitPlatform()
+}
