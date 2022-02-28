@@ -1,7 +1,7 @@
-package com.tinyTines.Actions;
+package com.autoMate.Actions;
 
 import com.google.gson.JsonObject;
-import com.tinyTines.objects.Options;
+import com.autoMate.objects.Options;
 
 /**
  * This Action object represents the basic concept of an action in Tiny Tines,

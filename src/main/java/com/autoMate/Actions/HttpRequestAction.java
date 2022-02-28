@@ -1,8 +1,8 @@
-package com.tinyTines.Actions;
+package com.autoMate.Actions;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.tinyTines.objects.Options;
+import com.autoMate.objects.Options;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;

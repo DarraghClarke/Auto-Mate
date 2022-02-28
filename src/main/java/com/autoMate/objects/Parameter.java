@@ -1,4 +1,4 @@
-package com.tinyTines.objects;
+package com.autoMate.objects;
 
 import java.util.Arrays;
 

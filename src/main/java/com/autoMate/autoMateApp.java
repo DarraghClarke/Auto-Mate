@@ -1,11 +1,12 @@
-package com.tinyTines;
+package com.autoMate;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.tinyTines.Actions.HttpRequestAction;
-import com.tinyTines.Actions.PrintAction;
-import com.tinyTines.Helpers.Parser;
+import com.autoMate.Actions.HttpRequestAction;
+import com.autoMate.Actions.PrintAction;
+import com.autoMate.Actions.TriggerAction;
+import com.autoMate.Helpers.Parser;
 
 import java.io.Reader;
 import java.nio.file.Files;
@@ -16,13 +17,13 @@ import java.util.Map;
 /**
  * Entry point for the Tiny Tines app,
  *
- * This App takes in a tinyTines story in json format, parses it,
+ * This App takes in a Auto-Mate story in json format, parses it,
  * splits it into actions and then executes those actions.
  *
  * [Doesn't tell jokes, sometimes tells error logs]
  * Darragh Clarke
  */
-public class TinyTinesApp {
+public class autoMateApp {
 
     public static void main(String[] args) {
         //if no values are passed in, exit
@@ -65,6 +66,20 @@ public class TinyTinesApp {
                         //finally print
                         System.out.println(output);
                         break;
+
+                    case "TriggerAction":
+                        TriggerAction triggerAction = gson.fromJson(actionsJson.get(i), TriggerAction.class);
+                        String valueName = Parser.format(eventLog, triggerAction.getOptions().getValue());
+                        String expectedValue = Parser.format(eventLog, triggerAction.getOptions().getExpectedResult());
+                        //TODO call trigger to see if it matches expected value
+
+                        if(valueName.equals(expectedValue)){
+
+                        }else {
+                            return;
+                        }
+
+
                 }
             }
         } catch (Exception e) {

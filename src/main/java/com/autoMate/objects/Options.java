@@ -1,4 +1,4 @@
-package com.tinyTines.objects;
+package com.autoMate.objects;
 
 /**
  * This object is used by the Action interface to represent the different options field that Actions can have
@@ -7,6 +7,16 @@ package com.tinyTines.objects;
 public class Options {
     public String url;
     public String message;
+    public String value;
+    public String expected;
+
+    public String getValue(){
+        return value;
+    }
+
+    public String getExpectedResult(){
+        return expected;
+    }
 
     public String getMessage() {
         return message;

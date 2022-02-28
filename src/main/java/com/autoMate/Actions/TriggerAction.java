@@ -1,18 +1,18 @@
-package com.tinyTines.Actions;
+package com.autoMate.Actions;
 
 import com.google.gson.JsonObject;
-import com.tinyTines.objects.Options;
+import com.autoMate.objects.Options;
 
-public class PrintAction implements Action {
+public class TriggerAction implements Action{
 
-    public JsonObject response;
-    public String name;
-    public Options options;
+    private String name;
+    private Options options;
+    private JsonObject response;
 
-    public PrintAction(String name) {
+
+    public TriggerAction(String name){
         this.name = name;
     }
-
     @Override
     public String getName() {
         return name;

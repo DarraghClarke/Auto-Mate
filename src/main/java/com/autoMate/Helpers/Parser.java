@@ -1,7 +1,7 @@
-package com.tinyTines.Helpers;
+package com.autoMate.Helpers;
 
 import com.google.gson.JsonObject;
-import com.tinyTines.objects.Parameter;
+import com.autoMate.objects.Parameter;
 
 import java.util.Map;
 import java.util.regex.Matcher;

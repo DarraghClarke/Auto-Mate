@@ -1,10 +1,7 @@
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.tinyTines.Actions.PrintAction;
-import com.tinyTines.Helpers.Parser;
-import org.apache.http.util.EntityUtils;
+import com.autoMate.Helpers.Parser;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

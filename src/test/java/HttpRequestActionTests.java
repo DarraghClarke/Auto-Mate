@@ -1,5 +1,5 @@
 import com.google.gson.JsonObject;
-import com.tinyTines.Actions.HttpRequestAction;
+import com.autoMate.Actions.HttpRequestAction;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
