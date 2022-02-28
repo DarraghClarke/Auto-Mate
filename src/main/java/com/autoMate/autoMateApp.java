@@ -1,11 +1,11 @@
 package com.autoMate;
 
+import com.autoMate.Actions.GateAction;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.autoMate.Actions.HttpRequestAction;
 import com.autoMate.Actions.PrintAction;
-import com.autoMate.Actions.TriggerAction;
 import com.autoMate.Helpers.Parser;
 
 import java.io.Reader;
@@ -15,9 +15,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Entry point for the Tiny Tines app,
+ * Entry point for the Auto Mate app,
  *
- * This App takes in a Auto-Mate story in json format, parses it,
+ * This App takes in a Auto Mate story in json format, parses it,
  * splits it into actions and then executes those actions.
  *
  * [Doesn't tell jokes, sometimes tells error logs]
@@ -67,18 +67,13 @@ public class autoMateApp {
                         System.out.println(output);
                         break;
 
-                    case "TriggerAction":
-                        TriggerAction triggerAction = gson.fromJson(actionsJson.get(i), TriggerAction.class);
-                        String valueName = Parser.format(eventLog, triggerAction.getOptions().getValue());
-                        String expectedValue = Parser.format(eventLog, triggerAction.getOptions().getExpectedResult());
-                        //TODO call trigger to see if it matches expected value
+                    case "GateAction":
+                        GateAction triggerAction = gson.fromJson(actionsJson.get(i), GateAction.class);
+                        boolean trigger = triggerAction.compare(eventLog);
 
-                        if(valueName.equals(expectedValue)){
-
-                        }else {
+                        if(!trigger) {
                             return;
                         }
-
 
                 }
             }
