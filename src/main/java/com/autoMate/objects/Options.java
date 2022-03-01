@@ -9,6 +9,11 @@ public class Options {
     public String message;
     public String value;
     public String expected;
+    //Todo clean all these options up into something that sets itself
+    public String emailSenderAddress;
+    public String emailReceiverAddress;
+    public String emailPassword;
+    public String emailMessage;
 
     public String getValue(){
         return value;
@@ -25,4 +30,12 @@ public class Options {
     public String getUrl() {
         return url;
     }
+
+    public String getEmailSenderAddress() { return emailSenderAddress; }
+
+    public String getEmailReceiverAddress() { return emailReceiverAddress; }
+
+    public String getEmailPassword() { return  emailPassword; }
+
+    public String getEmailMessage() { return emailMessage; }
 }
