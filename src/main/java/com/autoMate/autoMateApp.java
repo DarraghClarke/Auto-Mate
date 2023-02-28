@@ -1,6 +1,5 @@
 package com.autoMate;
 
-import com.autoMate.Actions.EmailAction;
 import com.autoMate.Actions.GateAction;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -79,12 +78,12 @@ public class autoMateApp {
 
                         break;
 
-                    case "EmailAction":
-                        //create email action
-                        EmailAction emailAction = gson.fromJson(actionsJson.get(i), EmailAction.class);
-                        //todo unify pattern of whether values should be passed in, or just the entire event log
-                        emailAction.sendEmail(eventLog);
-                        break;
+//                    case "EmailAction":
+//                        //create email action
+//                        EmailAction emailAction = gson.fromJson(actionsJson.get(i), EmailAction.class);
+//                        //todo unify pattern of whether values should be passed in, or just the entire event log
+//                        emailAction.sendEmail(eventLog);
+//                        break;
                 }
             }
         } catch (Exception e) {
