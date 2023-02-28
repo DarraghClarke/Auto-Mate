@@ -1,6 +1,8 @@
 # Auto-Mate
 Auto-mate is a automation tool that takes in JSON formatted files and runs a series of (mostly) HTTP commands based on them
 
+## Running Example
+Currently, to run the below sample, simply build the program and run it with an argument that points to the location of  `ExampleInput.txt`
 
 ## Example
 The below block features most of the existing features of Auto-Mate, 
